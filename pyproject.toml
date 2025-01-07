@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "instagridder"
+version = "0.1.0"
+description = "tiny tool to arrange art for instagram"
+authors = ["Neda <neda.sultova@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+flask = "^3.1.0"
+ipython = "^8.31.0"
+pip = "^24.3.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
