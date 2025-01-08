@@ -1,11 +1,21 @@
 {% extends "base.html" %}
 
 {% block body %}
-<div class="image-grid">
+<div class="image-grid" id="imageGrid">
     {% for image in images %}
-    <div class="grid-item">
+    <div class="grid-item"
+         draggable="true"
+         data-image="{{ image }}"
+         data-index="{{ loop.index0 }}">
         <img src="{{ url_for('static', filename='images/' + image) }}" alt="{{ image }}">
     </div>
     {% endfor %}
 </div>
+
+<script src="{{ url_for('static', filename='js/drag-drop.js') }}"></script>
 {% endblock %}
+
+<!--
+Learning notes for myself:
+(data-*) - add custom  that can then be accessed via js/css
+-->

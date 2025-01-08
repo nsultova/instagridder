@@ -16,6 +16,7 @@
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
 /* Hover effect */
@@ -27,5 +28,30 @@
     max-width: 60vw;
     object-fit: contain;
     z-index: 1000;
+}
 
+/* Drag and drop styles */
+.grid-item {
+    cursor: grab;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.grid-item.dragging {
+    cursor: grabbing;
+}
+
+.grid-item.drag-over {
+    transform: scale(1.02);
+    position: relative;
+}
+
+.grid-item.drag-over::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+    pointer-events: none;
 }
