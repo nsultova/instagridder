@@ -1,6 +1,6 @@
 ### Instagridder
 
-Small basic tool I wrote mimicking instagrams new grid layout (5:4 ratio) to create different previews of art arrangements.
+Small basic tool I wrote mimicking instagrams new grid layout (4:5 ratio) to create different previews of art arrangements.
 As artist on social media this is sadly the reality and all the tools out there claiming to ease your life whilst eating that frog
 are bloated with ads and other questionable behaviors.
 
