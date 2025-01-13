@@ -4,9 +4,7 @@
 <div class="image-grid" id="imageGrid">
     {% for image in images %}
     <div class="grid-item"
-         draggable="true"
-         data-image="{{ image }}"
-         data-index="{{ loop.index0 }}">
+         draggable="true">
         <img src="{{ url_for('static', filename='images/' + image) }}" alt="{{ image }}">
     </div>
     {% endfor %}
