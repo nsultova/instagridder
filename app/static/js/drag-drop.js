@@ -5,10 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const items = grid.getElementsByClassName('grid-item');
 
     let draggedItem = null;
+    let draggedIndex = null;
 
     Array.from(items).forEach(item => {
         item.addEventListener('dragstart', (e) => {
             draggedItem = item;
+            draggedIndex = parseInt(item.dataset.index);
             e.dataTransfer.effectAllowed = 'move';
             item.classList.add('dragging');
 
@@ -42,9 +44,21 @@ document.addEventListener('DOMContentLoaded', () => {
         item.addEventListener('drop', (e) => {
             e.preventDefault(); //..or browser says nope
             if (draggedItem === item) return;
-            const allItems = [...items];
-            item.parentNode.insertBefore(draggedItem, item);
 
+            const allItems = [...items];
+            const draggedOverIndex = parseInt(item.dataset.index);
+
+            // Update visual order
+            if (draggedIndex < draggedOverIndex) {
+                item.parentNode.insertBefore(draggedItem, item.nextSibling);
+            } else {
+                item.parentNode.insertBefore(draggedItem, item);
+            }
+
+            // Update data-index attributes
+            allItems.forEach((item, index) => {
+                item.dataset.index = index;
+            });
         });
     });
 });
